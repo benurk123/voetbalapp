@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Skrepr goes fit{% endblock %}
+
+{% block body %}
+    <a href="{{ path('post_index') }}" class="btn btn-dark" role="button">Terug naar overzicht</a>
+
+    <h1>Thuis Teams</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Naam</th>
+            <th>Game</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for team in homeTeams %}
+            <tr>
+                <td>{{ team.id }}</td>
+                <td>{{ team.naam }}</td>
+                <td>{{ team.category }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Uit Teams</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Naam</th>
+            <th>Game</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for team in awayTeams %}
+            <tr>
+                <td>{{ team.id }}</td>
+                <td>{{ team.naam }}</td>
+                <td>{{ team.category }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('post_new') }}" class="btn btn-dark" role="button">Create new</a>
+
+{% endblock %}

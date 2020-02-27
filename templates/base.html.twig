@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
+    {% block stylesheets %}{% endblock %}
+</head>
+    <body><header>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container">
+
+                <a class="navbar-brand" href="{{ path('post_index') }}"><img src="https://skrepr.com/theme/skrepr/img/skrepr.svg?27432ec29c" alt="Skrepr"></a>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('post_new') }}">Nieuwe speler</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main" class="container main">
         {% block body %}{% endblock %}
+    </main>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

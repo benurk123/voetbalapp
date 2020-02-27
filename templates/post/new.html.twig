@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nieuwe speler{% endblock %}
+
+{% block body %}
+    <h1>Nieuwe speler aanmaken</h1>
+    {{ include('post/_form.html.twig') }}
+    <br>
+
+    <a href="{{ path('post_index') }}" class="btn btn-dark" role="button">Terug naar overzicht</a>
+
+{% endblock %}

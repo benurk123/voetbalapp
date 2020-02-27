@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Overzicht spelers{% endblock %}
+
+{% block body %}
+
+
+    <div class="list-group mb-5" id="list-tab" role="tablist">
+        {% for game in teams %}
+        <a class="list-group-item list-group-item-action " href="{{ path('game', {game: game.id}) }}">{{ game.title }}
+            <i class="fa fa-angle-double-right mr-1"></i>
+        </a>
+        {% endfor %}
+    </div>
+
+    <tbody>
+    <h1>Thuis Teams</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Naam</th>
+                <th>Game</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for team in homeTeams %}
+            <tr>
+                <td>{{ team.id }}</td>
+                <td>{{ team.naam }}</td>
+                <td>{{ team.category }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Uit Teams</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Naam</th>
+            <th>Game</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for team in awayTeams %}
+            <tr>
+                <td>{{ team.id }}</td>
+                <td>{{ team.naam }}</td>
+                <td>{{ team.category }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('post_new') }}" class="btn btn-dark" role="button">Nieuwe speler aanmelden</a>
+{% endblock %}
